@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Dmitriy Dubinin](https://up.htmlacademy.ru/javascript/16/user/374087).
-* Наставник: `Неизвестно`.
+* Наставник: `Александр Тимоновский`.
 
 ---
 
