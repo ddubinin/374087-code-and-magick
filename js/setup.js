@@ -1,6 +1,4 @@
 'use strict';
-// var setup = document.querySelector ('.setup');
-// setup.classList.remove('hidden');
 
 var names = [
   'Иван',
@@ -95,46 +93,45 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
-
-setupOpen.addEventListener('click', function () {
-  setup.classList.remove('hidden');
-});
-setupClose.addEventListener('click', function () {
-  setup.classList.add('hidden');
-});
-
+var setupOpenIcon = document.querySelector('.setup-open-icon');
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
-var setupOpenIcon = document.querySelector('.setup-open-icon');
+setupOpen.addEventListener('click', function () {
+  openSetup();
+});
+
 setupOpenIcon.addEventListener('keydown', function (e) {
   if (e.keyCode === ENTER_KEYCODE) {
     openSetup();
   }
 });
-
-setupClose.addEventListener('keydown', function (e) {
-  if (e.keyCode === ENTER_KEYCODE) {
-    setup.classList.add('hidden');
-  }
-});
-
-
 setupOpenIcon.addEventListener('click', function () {
   openSetup();
 });
 
+setupClose.addEventListener('click', function () {
+  closeSetup();
+});
+setupClose.addEventListener('keydown', function (e) {
+  if (e.keyCode === ENTER_KEYCODE) {
+    closeSetup();
+  }
+});
+
+document.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    closeSetup();
+  }
+});
 var openSetup = function () {
   setup.classList.remove('hidden');
   // может что-то еще при откртии окна
 };
+var closeSetup = function () {
+  setup.classList.add('hidden');
 
-
-document.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    setup.classList.add('hidden');
-  }
-});
+};
 
 var userNameInput = setup.querySelector('.setup-user-name');
 userNameInput.addEventListener('invalid', function () {
