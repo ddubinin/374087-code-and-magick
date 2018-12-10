@@ -1,10 +1,9 @@
 'use strict';
 (function () {
-  
-window.COORDS = {
-  x: 980,
-  y:74
-};
+  window.COORDS = {
+    x: 980,
+    y: 74
+  };
   var setupDialogElement = document.querySelector('.setup');
   var dialogHandler = setupDialogElement.querySelector('.upload');
 
@@ -15,9 +14,6 @@ window.COORDS = {
       x: evt.clientX,
       y: evt.clientY
     };
-
-    // @oldfox не нужно ничего менять тут храним координаты по дефолту 🐼
-    // window.COORDS = startCoords;
 
     var dragged = false;
 
@@ -46,8 +42,8 @@ window.COORDS = {
       document.removeEventListener('mouseup', onMouseUp);
 
       if (dragged) {
-        var onClickPreventDefault = function (evt) {
-          evt.preventDefault();
+        var onClickPreventDefault = function (e) {
+          e.preventDefault();
           dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);

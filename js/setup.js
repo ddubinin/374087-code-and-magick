@@ -90,11 +90,7 @@ for (var i = 0; i < wizards.length; i++) {
 similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
-// @oldfox  ⚠️ дублируется с
-// стр 56
-//var userDialog = document.querySelector('.setup');
 var setup = document.querySelector('.setup');
-// 
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var setupOpenIcon = document.querySelector('.setup-open-icon');
@@ -112,8 +108,7 @@ setupOpenIcon.addEventListener('keydown', function (e) {
   }
 });
 
-// @oldfox  🙀 дублирует вызов окна сетапа
-setupOpenIcon.addEventListener('click', function () {  
+setupOpenIcon.addEventListener('click', function () {
   openSetup();
 });
 
@@ -131,20 +126,13 @@ document.addEventListener('keydown', function (evt) {
     closeSetup();
   }
 });
-var openSetup = function (target) {
-  //  @oldfox можем менять координаты при открытии на дефолт 😃
-  setup.style.top = window.COORDS.y + "px";
-  setup.style.left = window.COORDS.x + "px";
-  setup.classList.remove('hidden');  
+var openSetup = function () {
+  setup.style.top = window.COORDS.y + 'px';
+  setup.style.left = window.COORDS.x + 'px';
+  setup.classList.remove('hidden');
 };
 var closeSetup = function () {
   setup.classList.add('hidden');
-  // @oldfox  можем менять координаты при закрытии на дефолт 😃
-  /*
-  setup.style.top = window.COORDS.y + "px";
-  setup.style.left = window.COORDS.x + "px";
-  */
-
 };
 
 var userNameInput = setup.querySelector('.setup-user-name');
