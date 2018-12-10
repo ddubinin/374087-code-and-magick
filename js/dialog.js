@@ -2,7 +2,7 @@
 (function () {
   
 window.COORDS = {
-  x: 571,
+  x: 980,
   y:74
 };
   var setupDialogElement = document.querySelector('.setup');
@@ -16,7 +16,8 @@ window.COORDS = {
       y: evt.clientY
     };
 
-    window.COORDS = startCoords;
+    // @oldfox не нужно ничего менять тут храним координаты по дефолту 🐼
+    // window.COORDS = startCoords;
 
     var dragged = false;
 

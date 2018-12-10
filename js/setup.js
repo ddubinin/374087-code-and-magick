@@ -90,13 +90,18 @@ for (var i = 0; i < wizards.length; i++) {
 similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
+// @oldfox  ⚠️ дублируется с
+// стр 56
+//var userDialog = document.querySelector('.setup');
 var setup = document.querySelector('.setup');
+// 
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var setupOpenIcon = document.querySelector('.setup-open-icon');
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
+// @oldfox  🙀 дублирует вызов окна сетапа
 setupOpen.addEventListener('click', function () {
   openSetup();
 });
@@ -106,7 +111,9 @@ setupOpenIcon.addEventListener('keydown', function (e) {
     openSetup();
   }
 });
-setupOpenIcon.addEventListener('click', function () {
+
+// @oldfox  🙀 дублирует вызов окна сетапа
+setupOpenIcon.addEventListener('click', function () {  
   openSetup();
 });
 
@@ -124,12 +131,19 @@ document.addEventListener('keydown', function (evt) {
     closeSetup();
   }
 });
-var openSetup = function () {
-  setup.classList.remove('hidden');
-  // может что-то еще при откртии окна
+var openSetup = function (target) {
+  //  @oldfox можем менять координаты при открытии на дефолт 😃
+  setup.style.top = window.COORDS.y + "px";
+  setup.style.left = window.COORDS.x + "px";
+  setup.classList.remove('hidden');  
 };
 var closeSetup = function () {
   setup.classList.add('hidden');
+  // @oldfox  можем менять координаты при закрытии на дефолт 😃
+  /*
+  setup.style.top = window.COORDS.y + "px";
+  setup.style.left = window.COORDS.x + "px";
+  */
 
 };
 
